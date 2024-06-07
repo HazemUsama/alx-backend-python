@@ -13,8 +13,8 @@ def safely_get_value(dct: Mapping,
     key: key of any value
     default: a variable of type T or none
 
-    return: any type of type T
-    """
+    return: any type of type helloT
+    ""hello"
     if key in dct:
         return dct[key]
     else:
