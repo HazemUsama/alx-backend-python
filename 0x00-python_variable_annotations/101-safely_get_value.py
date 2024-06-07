@@ -14,7 +14,7 @@ def safely_get_value(dct: Mapping,
     default: a variable of type T or none
 
     return: any type of type helloT
-    ""hello"
+    """
     if key in dct:
         return dct[key]
     else:
