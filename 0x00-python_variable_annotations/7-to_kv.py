@@ -8,6 +8,6 @@ def to_kv(k: str, v: Union[int, float]) -> Tuple[str, float]:
     k: string
     v: value
 
-    return: (k, v^hello1)
+    return: (k, v^2)
     """
     return (k, v**2)
