@@ -47,6 +47,17 @@ class TestGithubOrgClient(unittest.TestCase):
             mock_get.called_with_once()
             mock_repo.called_with_once()
 
+    @parameterized.expand([
+        ({"license": {"key": "my_license"}}, "my_license", True),
+        ({"license": {"key": "other_license"}}, "my_license", False)
+    ])
+    def test_has_license(self, test_repo, license_key, expected):
+        """Test the has_license method"""
+        test_class = GithubOrgClient('corp')
+        self.assertEqual(
+            test_class.has_license(test_repo, license_key), expected
+        )
+
 
 if __name__ == "__main__":
     unittest.main()
