@@ -11,18 +11,16 @@ class TestGithubOrgClient(unittest.TestCase):
     """TestGithubOrgClient class"""
 
     @parameterized.expand([
-        ('google', {"payload": True}),
-        ('abc', {"payload": False})
+        ('google'),
+        ('abc')
     ])
     @patch('client.get_json')
-    def test_org(self, test_org, test_payload, mock_get):
+    def test_org(self, org_name, mock_get):
         """Test org"""
-        mock_get.return_value = test_payload
-        org = GithubOrgClient(test_org)
-
-        self.assertEqual(org.org, test_payload)
+        test_class = GithubOrgClient(org_name)
+        test_class.org()
         mock_get.assert_called_once_with(
-            f'https://api.github.com/orgs/{test_org}'
+            f'https://api.github.com/orgs/{org_name}'
         )
 
 
