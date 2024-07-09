@@ -8,7 +8,7 @@ from unittest.mock import patch, Mock
 
 
 class TestGithubOrgClient(unittest.TestCase):
-    """TestGithubOrgClient class"""
+    """Test the GithubOrgClient class"""
 
     @parameterized.expand([
         ('google'),
@@ -16,7 +16,7 @@ class TestGithubOrgClient(unittest.TestCase):
     ])
     @patch('client.get_json')
     def test_org(self, org_name, mock_get):
-        """Test org"""
+        """Test the org method of GithubOrgClient"""
         test_class = GithubOrgClient(org_name)
         test_class.org()
         mock_get.assert_called_once_with(
